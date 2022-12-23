@@ -13,13 +13,21 @@
   <link rel="stylesheet" href="<?=base_url()?>asset/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=base_url()?>asset/dist/css/adminlte.min.css">
-  <link rel="manifest" href="<?=$_SERVER['DOCUMENT_ROOT']?>/manifest.json">
+  <link rel="manifest" href="<?=base_url()?>/manifest.json">
   <script>
-    if (!navigator.serviceWorker.controller) {
-        navigator.serviceWorker.register("/sw.js").then(function(reg) {
-            console.log("Service worker has been registered for scope: " + reg.scope);
-        });
-    }
+            var BASE_URL = '<?= base_url() ?>';
+            document.addEventListener('DOMContentLoaded', init, false);
+
+            function init() {
+                if ('serviceWorker' in navigator && navigator.onLine) {
+                    navigator.serviceWorker.register( BASE_URL + 'sw.js')
+                    .then((reg) => {
+                        console.log('Registrasi service worker Berhasil', reg);
+                    }, (err) => {
+                        console.error('Registrasi service worker Gagal', err);
+                    });
+                }
+            }
 </script>
 </head>
 <body class="hold-transition login-page">
