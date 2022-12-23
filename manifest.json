@@ -1,6 +1,6 @@
 {
-  "name": "Hello World PWA",
-  "short_name": "Hi",
+  "name": "VENDOR API",
+  "short_name": "VENDOR API",
   "icons": [{
     "src": "icon/favicon-128x128.png",
       "sizes": "128x128",
