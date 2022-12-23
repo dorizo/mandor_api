@@ -33,7 +33,19 @@
                         KATEGORI <?=$value["cat_name"]?><hr />
                         Estimasi Mulai : <?=tanggalindo($value["project_start"])?><hr />
                         Estimasi Selesai : <?=tanggalindo($value["project_done"])?><hr />
-                        Estimasi Hari : <?=$value["project_paid"]?"Project Selesai":round($datediff / (60 * 60 * 24))." hari";?> 
+                        Estimasi Hari : <?=$value["project_paid"]?"Project Selesai":round($datediff / (60 * 60 * 24))." hari";?> <hr />
+                        Kekurangan Pembayaran : <?php
+                        if($value["nilai_project"] != 0 and $value["sharing_vendor"] != 0  ){
+                          
+                        echo rupiah((($value["nilai_project"] * $value["sharing_vendor"])/100) - $value["paymentvendor"] ) ;
+                        }else{
+                          echo "Project Dalam Peninjauan";
+                        }
+                        ?>
+                       <!-- Nilai Project : <?=rupiah($value["nilai_project"])?><br />
+                       Bunga Berjalan : <?=rupiah($value["totalbungaseluruh"]);?> <br />
+                       Pembayaran Vendor :  <?=rupiah($value["paymentvendor"]);?> -->
+                      
                       </div>
                     </div>
                     </td>
