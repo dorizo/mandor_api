@@ -18,7 +18,7 @@ class Vendor extends CI_Controller {
 		$data["dataresult"] = $this->vendor_model->view();
 		$data["titlepage"] = "VENDOR";
 		$this->load->view('template/header' , $data);
-		$this->load->view('vendor/view' , $data);
+		// $this->load->view('vendor/view' , $data);
 		$this->load->view('template/footer');
 	}
 	public function edit($id){
@@ -48,7 +48,7 @@ class Vendor extends CI_Controller {
 	   if ($this->form_validation->run() === FALSE)
         {
      	$this->load->view('template/header' , $data);
-		$this->load->view('vendor/add' , $data);
+		$this->load->view('vendor/addproject' , $data);
 		$this->load->view('template/footer');
 		
 		}else{
@@ -60,4 +60,9 @@ class Vendor extends CI_Controller {
         $this->vendor_model->delete($d);
         redirect('/vendor', 'refresh');    
     }
+	public function profile(){
+		$data["titlepage"] = "PROYEK ";
+		$this->load->view('template/header' , $data);
+		$this->load->view('template/footer');
+	}
 }

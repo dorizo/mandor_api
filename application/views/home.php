@@ -29,11 +29,11 @@
                     <td>
                     <div class="card card-primary card-outline">
                       <div class="card-body box-profile">
+                        <b><?=$value["project_code"]?></b><hr />
                         KATEGORI <?=$value["cat_name"]?><hr />
-                        PROJECT NAME<?=$value["project_code"]?><hr />
                         Estimasi Mulai : <?=tanggalindo($value["project_start"])?><hr />
                         Estimasi Selesai : <?=tanggalindo($value["project_done"])?><hr />
-                        Hitung Hari : <?=$value["project_paid"]?"Project Selesai":round($datediff / (60 * 60 * 24))." hari";?> 
+                        Estimasi Hari : <?=$value["project_paid"]?"Project Selesai":round($datediff / (60 * 60 * 24))." hari";?> 
                       </div>
                     </div>
                     </td>

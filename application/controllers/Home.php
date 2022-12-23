@@ -23,4 +23,28 @@ class Home extends CI_Controller {
 		$this->load->view('home', $data);
 		$this->load->view('template/footer');
 	}
+	public function add(){
+		
+		$data["titlepage"] = "Tambah Project";
+		$data["kategori"] = $this->db->query("select * from project_cat")->result_array();
+			$this->form_validation->set_rules('project_name', 'project_name', 'required');
+		 if ($this->form_validation->run() === FALSE)
+		  {
+		   $this->load->view('template/header' , $data);
+		  $this->load->view('vendor/addproject' , $data);
+		  $this->load->view('template/footer');
+		  
+		  }else{
+			  $this->project_model->submitadd();	
+			  redirect('/', 'refresh');
+		  }
+	}
+	public function profile(){
+		
+		$data["titlepage"] = "Profile";
+		$data["dataresult"] = $this->project_model->view();
+		$this->load->view('template/header' , $data);
+		$this->load->view('home', $data);
+		$this->load->view('template/footer');
+	}
 }
