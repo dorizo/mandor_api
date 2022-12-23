@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="<?=base_url()?>asset/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=base_url()?>asset/dist/css/adminlte.min.css">
-  <link rel=”manifest” href="/manifest.json">
+  <link rel="manifest" href="<?=$_SERVER['DOCUMENT_ROOT']?>/manifest.json">
   <script>
     if (!navigator.serviceWorker.controller) {
         navigator.serviceWorker.register("/sw.js").then(function(reg) {
