@@ -32,6 +32,7 @@ class Project_model extends CI_Model {
         public function submitadd(){
                 $p = $this->input->post();
                 $p["project_status"] = "Pending";
+                $p["witel_id"] = 1;
                 $this->db->insert("project" , $p);     
         }
 
