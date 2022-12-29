@@ -20,6 +20,13 @@
                       <input type="text" name="vendorName" class="form-control" placeholder=""  value="<?=$dataresult->vendorName?>">
                       </div>
                       
+                      
+                      <div class="form-group">
+                        <label>VENDOR CODE</label>
+                      <input type="text" name="vendorID" class="form-control" placeholder="">
+                      </div>
+                      
+                      
                       <div class="form-group">
                         <label>Alamat</label>
                         <input type="text" name="vendorAlamat" class="form-control" placeholder=""  value="<?=$dataresult->vendorAlamat?>">

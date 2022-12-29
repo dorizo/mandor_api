@@ -35,13 +35,29 @@
                     
                         </select>
                  </div>
+
+                 <div class="form-group">
+                          <label>witel</label>
+                          <select name="witel_id" class="custom-select">
+                              <option value="Pilih Vendor">Pilih witel</option>
+                              <?php
+                              foreach ($witelresult as $key => $value) {
+                                  # code...
+                                  $noted = $value['witel_id'] == $dataresult->witel_id ? ' selected="selected"' : '';
+                                  echo "<option value=\"".$value['witel_id']."\" ".$noted.">".$value['witel_name']."</option>";
+                              }
+                              ?>
+                      
+                          </select>
+                          
+                        </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Project Mulai</label>
                     <input type="date" name="project_date" class="form-control">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Catatan</label>
-                    <input type="text" name="project_code" class="form-control">
+                    <input type="text" name="project_note" class="form-control">
                   </div>
                 </div>
                 <!-- /.card-body -->

@@ -8,6 +8,8 @@ class Home extends CI_Controller {
 	{
 			parent::__construct();
 			$this->load->model('project_model');
+			$this->load->model('vendor_model');
+			$this->load->model('witel_model');
 			if(!$this->session->userdata("vendorCode")){
 				redirect('/login', 'refresh');
 			}
@@ -26,6 +28,10 @@ class Home extends CI_Controller {
 	public function add(){
 		
 		$data["titlepage"] = "Tambah Project";
+		
+        $data["vendorresult"] = $this->vendor_model->view();
+		
+        $data["witelresult"] = $this->witel_model->view();
 		$data["kategori"] = $this->db->query("select * from project_cat")->result_array();
 			$this->form_validation->set_rules('project_name', 'project_name', 'required');
 		 if ($this->form_validation->run() === FALSE)
